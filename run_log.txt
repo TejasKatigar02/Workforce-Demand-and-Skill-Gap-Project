@@ -1,0 +1,86 @@
+generated -> out/full_run1
+  role                     24
+  skill                   300
+  proficiency_scale         5
+  employee               5000
+  employee_skill        60010
+  project                 500
+  demand_line            1140
+  demand_plan            8971
+  demand_plan_line      20539
+  allocation             7984
+  availability           7024
+  training               2500
+  gap_analysis          20509
+  weekly_capacity          52
+  ground_truth            150
+generated -> out/full_run2
+  role                     24
+  skill                   300
+  proficiency_scale         5
+  employee               5000
+  employee_skill        60010
+  project                 500
+  demand_line            1140
+  demand_plan            8971
+  demand_plan_line      20539
+  allocation             7984
+  availability           7024
+  training               2500
+  gap_analysis          20509
+  weekly_capacity          52
+  ground_truth            150
+generated -> out/starter
+  role                     24
+  skill                    60
+  proficiency_scale         5
+  employee                200
+  employee_skill         2398
+  project                  40
+  demand_line              95
+  demand_plan             757
+  demand_plan_line       1724
+  allocation              174
+  availability            264
+  training                100
+  gap_analysis           1721
+  weekly_capacity          52
+  ground_truth             16
+status=PASS unlabelled=0 labelled=197 missed=0 injected=120
+status=PASS unlabelled=0 labelled=21 missed=0 injected=13
+seed.sql loads: FK violations=0 integrity=ok gap rows outside line window=0
+Reproducibility check: out/full_run1 vs out/full_run2
+
+Files compared: 21
+Files only in one run: none
+Files with different content: none
+
+Row counts (CSV data rows, identical in both runs):
+  analysis/gap_analysis.csv                     20509  match
+  analysis/weekly_capacity.csv                     52  match
+  docs/assumptions.csv                             12  match
+  ground_truth/ground_truth.csv                   150  match
+  master/employee.csv                            5000  match
+  master/employee_skill.csv                     60010  match
+  master/proficiency_scale.csv                      5  match
+  master/project.csv                              500  match
+  master/role.csv                                  24  match
+  master/skill.csv                                300  match
+  transactions/allocation.csv                    7984  match
+  transactions/availability.csv                  7024  match
+  transactions/demand_line.csv                   1140  match
+  transactions/demand_plan.csv                   8971  match
+  transactions/demand_plan_line.csv             20539  match
+  transactions/training.csv                      2500  match
+
+RESULT: IDENTICAL (byte-for-byte)
+m_overcommit         CAUGHT  status=FAIL unlabelled=592 labelled=23 missed=0 injected=13
+m_gap_arithmetic     CAUGHT  status=FAIL unlabelled=1 labelled=21 missed=0 injected=13
+m_pk_duplicate       CAUGHT  status=FAIL unlabelled=22 labelled=21 missed=0 injected=13
+m_fk_orphan          CAUGHT  status=FAIL unlabelled=1 labelled=21 missed=0 injected=13
+m_capacity_drift     CAUGHT  status=FAIL unlabelled=1 labelled=21 missed=0 injected=13
+m_decision_rule      CAUGHT  status=FAIL unlabelled=3312 labelled=21 missed=0 injected=13
+m_leaver_lifecycle   CAUGHT  status=FAIL unlabelled=1 labelled=21 missed=0 injected=13
+m_date_order         CAUGHT  status=FAIL unlabelled=5 labelled=21 missed=0 injected=13
+ALL MUTATIONS CAUGHT
+ALL STAGES PASSED
